@@ -1,6 +1,7 @@
 import json
 import os
 import requests
+import argparse
 
 SETTINGS_PATH = 'settings.json'
 
@@ -18,4 +19,9 @@ if not os.path.exists(SETTINGS_PATH):
 with open(SETTINGS_PATH) as settings_file:
     new_settings = json.load(settings_file)
     settings.update(new_settings)
+    
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Manage canvas courses')
+    parser.add_argument('command', help='A command to run')
+    
     
