@@ -41,13 +41,13 @@ def get(command, data=None, all=False):
         return requests.get(settings.get('canvas-url')+command, data=data).json()
 def post(command, data):
     data['access_token'] = settings.get('canvas-token')
-    return requests.post(CANVAS_URL+command, data=data)
+    return requests.post(settings.get('canvas-url')+command, data=data)
 def delete(command, data):
     data['access_token'] = settings.get('canvas-token')
-    return requests.delete(CANVAS_URL+command, data=data)
+    return requests.delete(settings.get('canvas-url')+command, data=data)
 def put(command, data):
     data['access_token'] = settings.get('canvas-token')
-    return requests.put(CANVAS_URL+command, data=data)
+    return requests.put(settings.get('canvas-url')+command, data=data)
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Manage canvas courses')
